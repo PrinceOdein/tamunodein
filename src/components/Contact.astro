@@ -1,0 +1,35 @@
+<section id="contact" class="py-24 max-w-3xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-8">Contact</h2>
+
+  <form method="POST" action="/api/contact" class="space-y-6">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your name"
+      required
+      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded"
+    />
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Your email"
+      required
+      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded"
+    />
+
+    <textarea
+      name="message"
+      placeholder="Your message"
+      required
+      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded h-32"
+    ></textarea>
+
+    <button
+      type="submit"
+      class="px-6 py-3 bg-white text-black rounded font-medium"
+    >
+      Send message
+    </button>
+  </form>
+</section>

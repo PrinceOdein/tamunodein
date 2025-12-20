@@ -1,5 +1,9 @@
 ---
-const { title = "Tamunodein" } = Astro.props;
+const {
+  title = "Tamunodein(PrinceOdein) | Software Engineer",
+  description = "Software engineer focused on web, Web3, backend systems, and game development.",
+} = Astro.props;
+
 import "../styles/global.css";
 ---
 <!DOCTYPE html>
@@ -8,6 +12,18 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body class="bg-zinc-950 text-zinc-100">
     <slot />

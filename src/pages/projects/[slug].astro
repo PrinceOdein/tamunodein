@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props as { project: Project };
 const { data } = project;
 ---
-<BaseLayout title={data.title}>
+<BaseLayout title={`${data.title} | Tamunodein(PrinceOdein)`} description={data.description}>
   <article class="max-w-3xl mx-auto px-6 py-24">
     <h1 class="text-4xl font-bold">{data.title}</h1>
     <p class="text-zinc-400 mt-4">{data.description}</p>

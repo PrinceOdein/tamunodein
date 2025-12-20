@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props as { post: BlogPost };
 const { data } = post;
 ---
-<BaseLayout title={data.title}>
+<BaseLayout title={`${data.title} | Tamunodein(PrinceOdein)`} description={data.description}>
   <article class="max-w-3xl mx-auto px-6 py-24 prose prose-invert">
     <h1>{data.title}</h1>
     <p class="text-zinc-400">{data.description}</p>
