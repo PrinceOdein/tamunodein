@@ -1,0 +1,57 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+type Project = CollectionEntry<"projects">;
+
+const projects = await getCollection("projects");
+const categories = ["All", ...new Set(projects.map(p => p.data.category))];
+---
+<section id="projects" class="py-24 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-8">Projects</h2>
+
+  <div class="flex gap-4 mb-12 flex-wrap">
+    {categories.map((cat) => (
+      <button
+        class="px-3 py-1 border border-zinc-700 rounded text-sm"
+        data-category={cat}
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8" id="project-grid">
+    {projects.map((project: Project) => (
+      <div data-category={project.data.category}>
+        <ProjectCard project={project} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "button[data-category]"
+  );
+
+  const cards = document.querySelectorAll<HTMLElement>(
+    "#project-grid > div"
+  );
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.dataset.category;
+
+      cards.forEach((card) => {
+        const cardCategory = card.dataset.category;
+
+        card.style.display =
+          cat === "All" || cardCategory === cat
+            ? "block"
+            : "none";
+      });
+    });
+  });
+</script>
+

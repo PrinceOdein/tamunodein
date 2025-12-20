@@ -1,0 +1,23 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+type BlogPost = CollectionEntry<"blog">;
+
+const posts = (await getCollection("blog"))
+  .sort((a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+<section class="py-24 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-12">Blog</h2>
+
+  <div class="space-y-6">
+    {posts.map((post: BlogPost) => (
+      <div>
+        <a href={`blog/${post.slug}`} class="block">
+            <h3 class="text-xl">{post.data.title}</h3>
+        </a>
+        <p class="text-zinc-400">{post.data.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { project } = Astro.props as {
+  project: CollectionEntry<"projects">;
+};
+
+const { data } = project;
+---
+<a href={`projects/${project.slug}`} class="block">
+    <article class="border border-zinc-800 rounded-lg p-6 hover:border-zinc-600 transition">
+  <h3 class="text-xl font-semibold">{data.title}</h3>
+  <p class="text-zinc-400 mt-2">{data.description}</p>
+
+  <ul class="flex flex-wrap gap-2 mt-4">
+    {data.techStack.map((tech: string) => (
+      <li class="text-sm bg-zinc-800 px-2 py-1 rounded">{tech}</li>
+    ))}
+  </ul>
+
+  <div class="flex gap-4 mt-4 text-sm">
+    {data.liveUrl && <a href={data.liveUrl} target="_blank">Live</a>}
+    {data.repoUrl && <a href={data.repoUrl} target="_blank">Code</a>}
+  </div>
+</article>
+</a>
