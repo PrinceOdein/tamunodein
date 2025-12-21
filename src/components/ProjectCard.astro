@@ -8,7 +8,13 @@ const { project } = Astro.props as {
 const { data } = project;
 ---
 <a href={`projects/${project.slug}`} class="block">
-    <article class="border border-zinc-800 rounded-lg p-6 hover:border-zinc-600 transition">
+  <article class="border border-zinc-800 rounded-lg p-6 hover:border-zinc-600 transition">
+  {data.featured && (
+  <span class="text-xs text-emerald-400 uppercase tracking-wide">
+    Featured
+  </span>
+)}
+
   <h3 class="text-xl font-semibold">{data.title}</h3>
   <p class="text-zinc-400 mt-2">{data.description}</p>
 
