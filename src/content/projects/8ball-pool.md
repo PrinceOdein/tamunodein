@@ -1,16 +1,31 @@
 ---
-title: "8Ball Pool"
-description: "A 2D clone of a simple 8-ball pool game."
-techStack: ["Unity", "C#"]
-liveUrl: "https://example.com"
-category: "Game"
-featured: false
-date: 2023-12-01
+title: 8Ball Pool (2D)
+date: 2024-05-15
+featured: true
+category: Games
+description: A simple 2D clone of an 8-ball pool game.
+cover: /images/projects/8ball-pool.png
+tech:
+  - C#
+  - Unity
 ---
 
-8Ball Pool is a casual 2D game recreating the core mechanics of classic pool gameplay.
+## Overview
 
-Focus:
-- Physics-based gameplay
-- Casual gaming
-- Simple UI
+This project is a 2D implementation of a basic 8-ball pool game.
+
+## Problem
+
+Understanding collision, physics, and game logic requires hands-on
+practice.
+
+## Solution
+
+The game simulates basic pool mechanics, including ball movement and
+collisions.
+
+## Focus Areas
+
+- Physics simulation
+- Game loop logic
+- Input handling

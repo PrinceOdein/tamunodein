@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -7,7 +8,7 @@ type Project = CollectionEntry<"projects">;
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
-  return projects.map((project: Project) => ({
+  return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
@@ -15,20 +16,64 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props as { project: Project };
 const { data } = project;
+
+// 🔑 THIS is what you were missing
+const { Content } = await project.render();
 ---
-<BaseLayout title={`${data.title} | Tamunodein(PrinceOdein)`} description={data.description}>
-  <article class="max-w-3xl mx-auto px-6 py-24">
+
+<BaseLayout
+  title={`${data.title} | Tamunodein (PrinceOdein)`}
+  description={data.description}
+>
+  <article class="max-w-4xl mx-auto px-6 py-24">
+    <!-- Cover Image -->
+    {data.cover && (
+      <img
+        src={data.cover}
+        alt={data.title}
+        loading="lazy"
+        class="w-full rounded-xl mb-10"
+      />
+    )}
+
+    <!-- Title & Description -->
     <h1 class="text-4xl font-bold">{data.title}</h1>
     <p class="text-zinc-400 mt-4">{data.description}</p>
 
+    <!-- Tech Stack -->
     <div class="flex flex-wrap gap-2 mt-6">
-      {data.techStack.map((tech: string) => (
-        <span class="text-sm bg-zinc-800 px-2 py-1 rounded">{tech}</span>
+      {data.tech.map((tech) => (
+        <span class="text-sm bg-zinc-800 px-3 py-1 rounded-full">
+          {tech}
+        </span>
       ))}
     </div>
 
-    <div class="prose prose-invert mt-12">
-      <slot />
+    <!-- Markdown Content -->
+    <div class="prose prose-invert mt-12 max-w-none">
+      <Content />
+    </div>
+
+    <!-- Links -->
+    <div class="flex gap-6 mt-12 text-sm">
+      {data.live && (
+        <a
+          href={data.live}
+          target="_blank"
+          class="underline underline-offset-4"
+        >
+          Live Demo
+        </a>
+      )}
+      {data.repo && (
+        <a
+          href={data.repo}
+          target="_blank"
+          class="underline underline-offset-4"
+        >
+          Repository
+        </a>
+      )}
     </div>
   </article>
 </BaseLayout>

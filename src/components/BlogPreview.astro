@@ -7,7 +7,7 @@ const posts = (await getCollection("blog"))
   .sort((a: BlogPost, b: BlogPost) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 ---
-<section class="py-24 max-w-6xl mx-auto px-6">
+<section id="blog" class="py-24 max-w-6xl mx-auto px-6">
   <h2 class="text-3xl font-bold mb-12">Blog</h2>
 
   <div class="space-y-6">

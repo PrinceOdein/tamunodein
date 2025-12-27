@@ -1,16 +1,29 @@
 ---
-title: "BuX Printer"
-description: "An online marketplace connecting clients, printing vendors, and logistics personnel."
-techStack: ["Next.js", "Tailwind", "Node.js", "PostgreSQL"]
-liveUrl: "https://example.com"
-category: "Marketplace"
+title: BuX Printer
+date: 2024-05-15
 featured: true
-date: 2024-10-05
+category: Marketplace
+description: An online marketplace connecting clients, printing vendors, and logistics personnel.
+cover: /images/projects/bux-printer.png
+tech:
+  - JavaScript
+  - Node.js
+  - MongoDB
+  - Supabase
 ---
 
-BuX Printer is a multi-sided platform that allows users to find printing services, vendors to offer services, and logistics partners to handle delivery.
+## Overview
 
-Focus:
-- Vendor discovery
-- Job matching
-- End-to-end printing workflow
+BuX Printer is an online marketplace designed to connect customers with
+printing vendors and logistics providers, similar in concept to Jiji,
+but focused specifically on printing services.
+
+## Problem
+
+Clients often struggle to find reliable printing vendors and logistics
+support in one place.
+
+## Solution
+
+The platform centralizes vendors, orders, and delivery coordination
+into a single system.

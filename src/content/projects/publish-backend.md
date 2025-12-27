@@ -1,16 +1,33 @@
 ---
-title: "Publish Backend"
-description: "Backend system for a publishing platform with email subscriptions and manuscript uploads."
-techStack: ["Node.js", "Express", "MongoDB"]
-liveUrl: "https://example.com"
-category: "Backend"
-featured: false
-date: 2024-07-20
+title: Publish Backend
+date: 2024-05-15
+featured: true
+category: Publishing Tools
+description: A simple backend system for publishing platforms with email subscriptions and manuscript uploads.
+cover: /images/projects/publish-backend.png
+tech:
+  - Node.js
+  - PostgreSQL
+  - Supabase
 ---
 
-Publish Backend provides core infrastructure for content publishing platforms, handling subscriptions and manuscript management.
+## Overview
 
-Focus:
-- Email subscriptions
-- File uploads
-- Content management
+Publish Backend is a lightweight backend system built for content
+publishing platforms.
+
+## Problem
+
+Many small publishing projects need basic functionality without
+heavyweight CMS solutions.
+
+## Solution
+
+The backend supports email subscriptions and manuscript uploads,
+providing essential publishing features with minimal complexity.
+
+## Focus Areas
+
+- Data modeling
+- File handling
+- Subscription logic

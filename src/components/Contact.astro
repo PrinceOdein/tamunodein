@@ -1,35 +1,81 @@
-<section id="contact" class="py-24 max-w-3xl mx-auto px-6">
-  <h2 class="text-3xl font-bold mb-8">Contact</h2>
+---
+const sent = Astro.url.searchParams.get("sent") === "true";
+---
 
-  <form method="POST" action="/api/contact" class="space-y-6">
-    <input
-      type="text"
-      name="name"
-      placeholder="Your name"
-      required
-      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded"
-    />
+ <section id="contact" class="max-w-xl mx-auto px-6 py-24">
+    <h1 class="text-3xl font-bold mb-6">Contact</h1>
+    {sent && (
+  <div role="dialog" aria-modal="true" aria-labelledby="contact-success-title" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+    <div class="bg-zinc-900 rounded-xl p-6 max-w-sm w-full text-center shadow-xl">
+      <h3 id="contact-success-title" class="text-lg font-semibold text-white">
+        Message sent
+      </h3>
 
-    <input
-      type="email"
-      name="email"
-      placeholder="Your email"
-      required
-      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded"
-    />
+      <p class="text-sm text-zinc-400 mt-2">
+        Thanks for reaching out. I’ll get back to you soon.
+      </p>
 
-    <textarea
-      name="message"
-      placeholder="Your message"
-      required
-      class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded h-32"
-    ></textarea>
+      <a
+        href="/"
+        class="inline-block mt-6 px-4 py-2 rounded bg-white text-black text-sm font-medium hover:bg-zinc-200 transition"
+      >
+        Close
+      </a>
+    </div>
+  </div>
+)}
 
-    <button
-      type="submit"
-      class="px-6 py-3 bg-white text-black rounded font-medium"
+
+
+    <form
+      method="POST"
+      action="/api/contact"
+      enctype="application/x-www-form-urlencoded"
+      onsubmit="this.querySelector('button').disabled = true; return true;"
+      class="space-y-4"
     >
-      Send message
-    </button>
-  </form>
-</section>
+
+    <label for="name" class="block text-sm mb-1">Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        required
+        class="w-full bg-zinc-900 border border-zinc-700 px-4 py-2 rounded"
+      />
+
+      <label for="email" class="block text-sm mb-1">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email"
+        required
+        class="w-full bg-zinc-900 border border-zinc-700 px-4 py-2 rounded"
+      />
+
+      <input
+        type="text"
+        name="company"
+        tabindex="-1"
+        autocomplete="off"
+        class="hidden"
+      />
+
+
+      <label for="message" class="block text-sm mb-1">Message</label>
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Your message"
+        required
+        class="w-full bg-zinc-900 border border-zinc-700 px-4 py-2 rounded"
+      ></textarea>
+
+      <button
+        type="submit"
+        class="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-zinc-200 transition disabled:opacity-60"
+      >
+        Send message
+      </button>
+    </form>
+  </section>

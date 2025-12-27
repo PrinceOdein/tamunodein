@@ -9,8 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^9.0.2",
     "@tailwindcss/vite": "^4.1.18",
+    "@types/nodemailer": "^7.0.4",
     "astro": "^5.16.6",
+    "nodemailer": "^7.0.12",
+    "resend": "^6.6.0",
     "tailwindcss": "^4.1.18"
   }
 }

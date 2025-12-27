@@ -1,5 +1,35 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap'); */
+
 
 section {
   scroll-margin-top: 6rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem; /* text-3xl */
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.prose h3 {
+  font-size: 1.5rem; /* text-2xl */
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.prose ul {
+  margin-top: 1rem;
+}
+
+.prose li::marker {
+  color: rgb(161 161 170); /* zinc-400 */
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

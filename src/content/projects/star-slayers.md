@@ -1,16 +1,34 @@
 ---
-title: "StarSlayers (SLAY)"
-description: "ERC-20 token smart contract deployed on the Sepolia testnet."
-techStack: ["Solidity", "Hardhat", "Ethereum"]
-liveUrl: "https://sepolia.etherscan.io"
-category: "Blockchain"
+title: StarSlayers (SLAY)
+date: 2024-05-15
 featured: true
-date: 2024-11-02
+category: Blockchain
+description: A smart contract token deployed on the Sepolia testnet.
+cover: /images/projects/star-slayers.png
+tech:
+  - Solidity
+  - Hardhat
+  - Sepolia
+repo: https://github.com/yourname/star-slayers
 ---
 
-StarSlayers (SLAY) is a token smart contract built and deployed for testing and experimentation on the Sepolia network.
+## Overview
 
-Focus:
-- Smart contract development
-- Token economics
-- Ethereum tooling
+StarSlayers (SLAY) is a Solidity-based token smart contract deployed on
+the Sepolia testnet.
+
+## Problem
+
+Many token projects stop at compilation without real deployment or
+testing.
+
+## Solution
+
+The contract was written, tested, and deployed using Hardhat to a public
+testnet.
+
+## What I Learned
+
+- Solidity best practices
+- Hardhat workflows
+- Testnet deployment
